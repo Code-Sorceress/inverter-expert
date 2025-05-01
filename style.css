@@ -807,6 +807,10 @@ body {
   .certificate-list {
     font-size: 0.95rem;
   }
+
+  .certificate-image {
+    margin-top: -160px;
+  }
 }
 
 .brands-section {
