@@ -25,10 +25,7 @@
         </p>
 
         <div class="image-group">
-          <img
-            src="b6289460-53f3-4b07-992b-eb5c31eb85ad.png"
-            alt="Course Promo"
-          />
+          <img src="img1.png" alt="Course Promo" />
         </div>
 
         <p class="sales-info">
@@ -39,5 +36,118 @@
         <a href="#" class="cta-button">Unlock Offer</a>
       </div>
     </section>
+
+    <div id="popup" class="popup">
+      <span><strong id="buyer-name">Lucas</strong> just purchased.</span>
+    </div>
+
+    <section class="carousel-section">
+      <h2>Here are some of the most common feedback messages I receive…</h2>
+      <div class="carousel-container">
+        <div class="carousel-track" id="carousel-track">
+          <!-- You can duplicate this slide block to add more -->
+          <div class="carousel-slide">
+            <img src="review1.png" alt="Feedback Screenshot 1" />
+          </div>
+
+          <div class="carousel-slide">
+            <img src="review2.png" alt="Feedback Screenshot 1" />
+          </div>
+
+          <div class="carousel-slide">
+            <img src="review1.png" alt="Feedback Screenshot 1" />
+          </div>
+
+          <div class="carousel-slide">
+            <img src="review2.png" alt="Feedback Screenshot 1" />
+          </div>
+
+          <div class="carousel-slide">
+            <img src="review1.png" alt="Feedback Screenshot 1" />
+          </div>
+
+          <div class="carousel-slide">
+            <img src="review2.png" alt="Feedback Screenshot 1" />
+          </div>
+
+          <div class="carousel-slide">
+            <img src="review1.png" alt="Feedback Screenshot 1" />
+          </div>
+
+          <div class="carousel-slide">
+            <img src="review2.png" alt="Feedback Screenshot 1" />
+          </div>
+
+          <div class="carousel-slide">
+            <img src="review1.png" alt="Feedback Screenshot 1" />
+          </div>
+
+          <div class="carousel-slide">
+            <img src="review2.png" alt="Feedback Screenshot 1" />
+          </div>
+          <!-- Repeat if more images -->
+        </div>
+        <button class="carousel-arrow left" onclick="moveSlide(-1)">
+          &#10094;
+        </button>
+        <button class="carousel-arrow right" onclick="moveSlide(1)">
+          &#10095;
+        </button>
+      </div>
+    </section>
+
+    <!-- ...............................JS....................... -->
+    <script>
+      const popup = document.getElementById("popup");
+      const buyerNameEl = document.getElementById("buyer-name");
+
+      const names = [
+        "Lucas",
+        "Maria",
+        "John",
+        "Emily",
+        "Carlos",
+        "Aisha",
+        "Liam",
+        "Zara",
+        "Noah",
+        "Chloe",
+        "Mateo",
+        "Olivia",
+        "Leo",
+        "Isla",
+      ];
+
+      function getRandomName() {
+        return names[Math.floor(Math.random() * names.length)];
+      }
+
+      function togglePopup() {
+        const randomName = getRandomName();
+        buyerNameEl.textContent = randomName;
+
+        popup.classList.add("show");
+        setTimeout(() => {
+          popup.classList.remove("show");
+        }, 3000);
+      }
+
+      togglePopup(); // initial call
+      setInterval(togglePopup, 10000); // repeat every 10s
+
+      const track = document.getElementById("carousel-track");
+      let index = 0;
+
+      function moveSlide(direction) {
+        const slides = document.querySelectorAll(".carousel-slide");
+        const totalSlides = slides.length;
+
+        index = (index + direction + totalSlides) % totalSlides;
+        track.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      // Optional: Auto-scroll every 10 seconds
+      setInterval(() => moveSlide(1), 10000);
+    </script>
   </body>
 </html>
